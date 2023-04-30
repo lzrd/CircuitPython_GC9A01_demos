@@ -57,6 +57,7 @@ The examples attempt to auto-detect the board you're using. The currently detect
 - [QT Py RP2040](https://circuitpython.org/board/adafruit_qtpy_rp2040/)
 - [Raspberry Pi Pico](https://circuitpython.org/board/raspberry_pi_pico/)
 - [ItsyBitsy M4 Express](https://circuitpython.org/board/itsybitsy_m4_express/)
+- [RP2040-LCD-1.28](https://circuitpython.org/board/waveshare_rp2040_lcd_1_28/)
 
 ### Eyeballs demos
 

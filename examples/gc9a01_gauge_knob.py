@@ -33,7 +33,7 @@ displayio.release_displays()
 import os
 board_type = os.uname().machine
 
-if 'QT Py M0' in board_type or 'QT Py RP2040' in board_type: 
+if 'QT Py M0' in board_type or 'QT Py RP2040' in board_type:
     # QT Py pinout
     tft_clk  = board.SCK
     tft_mosi = board.MOSI
@@ -51,7 +51,7 @@ elif 'ItsyBitsay M4' in board_type:
     tft_bl   = board.A3  # optional
     spi = busio.SPI(clock=tft_clk, MOSI=tft_mosi)
 elif 'Pico' in board_type:
-    # # one pinout, on "southeast" side of Pico board 
+    # # one pinout, on "southeast" side of Pico board
     # tft_clk = board.GP18
     # tft_mosi= board.GP19
     # tft_rst = board.GP20
@@ -134,17 +134,17 @@ last_time = time.monotonic()
 while True:
     percent = map_range( analog_in.value, (200,65400), (1,0))
     theta = percent_to_theta(percent)
-    
+
     print("dt:",time.monotonic()-last_time,"theta:", theta, int(percent*100))
     last_time = time.monotonic()
 
     # erasing the entire bitmap is slow (~1fps, because of transparency I think)
     # instead we erase just the region we modified, after refresh below
     # bitmap_scribble.fill(0)
-    
+
     # offset rotation point (15,105) for bitmap_pointer's axis of rotation
     bitmaptools.rotozoom( bitmap_scribble, bitmap_pointer, angle = theta, px=15,py=105)
-    
+
     display.refresh()
 
     # after refresh, now "erase" the rotated pointer by doing a
